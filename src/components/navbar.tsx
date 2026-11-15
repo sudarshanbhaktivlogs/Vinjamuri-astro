@@ -59,11 +59,11 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <div className="hidden items-center rounded-full border border-amber-500/20 bg-slate-900/60 p-1 sm:flex">
+          <div className="flex items-center rounded-full border border-amber-500/20 bg-slate-900/60 p-1">
             <button
               type="button"
               onClick={() => setLanguage("en")}
-              className={`rounded-full px-3 py-1.5 text-xs font-semibold transition ${
+              className={`rounded-full px-2.5 py-1.5 text-[10px] font-semibold transition sm:px-3 sm:text-xs ${
                 language === "en"
                   ? "bg-amber-500 text-slate-950 shadow-lg shadow-amber-500/20"
                   : "text-slate-300 hover:text-white"
@@ -74,7 +74,7 @@ export function Navbar() {
             <button
               type="button"
               onClick={() => setLanguage("te")}
-              className={`rounded-full px-3 py-1.5 text-xs font-semibold transition ${
+              className={`rounded-full px-2.5 py-1.5 text-[10px] font-semibold transition sm:px-3 sm:text-xs ${
                 language === "te"
                   ? "bg-amber-500 text-slate-950 shadow-lg shadow-amber-500/20"
                   : "text-slate-300 hover:text-white"

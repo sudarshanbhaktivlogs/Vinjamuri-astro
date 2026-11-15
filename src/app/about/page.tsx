@@ -55,8 +55,8 @@ export default function AboutPage() {
       <section className="mt-16">
         <div className="mb-8 flex items-end justify-between gap-4">
           <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-amber-200">{copy.about.videoSectionLabel}</p>
-            <h2 className="mt-2 font-['Cinzel'] text-3xl text-white">{copy.about.videoSectionTitle}</h2>
+            <p className="text-xs uppercase tracking-[0.2em] text-amber-700">{copy.about.videoSectionLabel}</p>
+            <h2 className="mt-2 font-['Cinzel'] text-3xl text-slate-900">{copy.about.videoSectionTitle}</h2>
           </div>
         </div>
 

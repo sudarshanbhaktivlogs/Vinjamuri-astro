@@ -194,7 +194,7 @@ export const translations: Record<Language, TranslationFile> = {
         "Serving devotees, families, and NRI clients with time-tested wisdom, compassionate listening, and guidance that respects both tradition and daily life realities.",
       trustBadges: [
         { value: "28+", label: "Years of Experience" },
-        { value: "15k+", label: "Global NRI & Indian Consultations" },
+        { value: "3k", label: "Global NRI & Indian Consultations" },
         { value: "100%", label: "Traditional Vedic Remedies" },
       ],
       featuredServices: [

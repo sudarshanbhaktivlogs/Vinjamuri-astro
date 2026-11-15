@@ -5,6 +5,7 @@ import { Clock3, MapPin, PlayCircle } from "lucide-react";
 
 import { translations } from "@/data/translations";
 import { useLanguage } from "@/components/language-context";
+import { BUSINESS_EMAIL, BUSINESS_PHONE_DISPLAY } from "@/lib/contact";
 
 export function Footer() {
   const { language } = useLanguage();
@@ -20,7 +21,24 @@ export function Footer() {
           <div className="mt-5 space-y-4 text-sm text-slate-300">
             <div className="flex items-start gap-3">
               <MapPin className="mt-0.5 h-4 w-4 text-amber-400" />
-              <span>{copy.footer.address}</span>
+              <a
+                href="https://www.google.com/maps/place/Sri+Sudarshan+Vastu+Jyothishalayam/@16.0513566,80.7223825,17z/data=!4m14!1m7!3m6!1s0x3a4a1c00172ee36b:0x98ce13a577ebb66a!2sSri+Sudarshan+Vastu+Jyothishalayam!8m2!3d16.0513566!4d80.7223825!16s%2Fg%2F1hd_9975z!3m5!1s0x3a4a1c00172ee36b:0x98ce13a577ebb66a!8m2!3d16.0513566!4d80.7223825!16s%2Fg%2F1hd_9975z?entry=ttu&g_ep=EgoyMDI2MTExMC4wIKXMDSoASAFQAw%3D%3D"
+                target="_blank"
+                rel="noreferrer"
+                className="transition hover:text-amber-200"
+              >
+                {copy.footer.address}
+              </a>
+            </div>
+            <div className="overflow-hidden rounded-2xl border border-amber-500/20 bg-slate-900/60">
+              <iframe
+                title="Sri Sudarshan Vastu Jyothishalayam location"
+                src="https://www.google.com/maps?q=16.0513566,80.7223825&z=17&output=embed"
+                className="h-44 w-full border-0"
+                loading="lazy"
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
             <div className="flex items-start gap-3">
               <Clock3 className="mt-0.5 h-4 w-4 text-amber-400" />
@@ -55,10 +73,10 @@ export function Footer() {
           </p>
           <div className="mt-5 space-y-3 text-sm text-slate-300">
             <a href="tel:+919704527404" className="block transition hover:text-amber-200">
-              +91 97045 27404
+              {BUSINESS_PHONE_DISPLAY}
             </a>
-            <a href="mailto:sudarshanbhaktivlogs@gmail.com" className="block transition hover:text-amber-200">
-              sudarshanbhaktivlogs@gmail.com
+            <a href={`mailto:${BUSINESS_EMAIL}`} className="block transition hover:text-amber-200">
+              {BUSINESS_EMAIL}
             </a>
             <a
               href="https://www.youtube.com/@SudarshanBhaktivlogs"
@@ -68,14 +86,6 @@ export function Footer() {
             >
               <PlayCircle className="h-4 w-4 text-amber-400" />
               {copy.footer.youtube}
-            </a>
-            <a
-              href="https://github.com/sudarshanbhaktivlogs"
-              target="_blank"
-              rel="noreferrer"
-              className="block transition hover:text-amber-200"
-            >
-              github.com/sudarshanbhaktivlogs
             </a>
           </div>
         </div>

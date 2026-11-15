@@ -1,9 +1,11 @@
 import { MessageCircleMore } from "lucide-react";
 
+import { buildWhatsAppUrl } from "@/lib/contact";
+
 export function WhatsAppButton() {
   return (
     <a
-      href="https://wa.me/?text=Namaskaram%20Sri%20Sudarshan%20Vastu%20Jyothishalayam%2C%20I%20would%20like%20to%20book%20a%20consultation."
+      href={buildWhatsAppUrl("Namaskaram Sri Sudarshan Vastu Jyothishalayam, I would like to book a consultation.")}
       target="_blank"
       rel="noreferrer"
       aria-label="Chat on WhatsApp"

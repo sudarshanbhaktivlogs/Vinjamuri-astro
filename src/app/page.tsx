@@ -15,6 +15,7 @@ import {
 
 import { useLanguage } from "@/components/language-context";
 import { translations } from "@/data/translations";
+import { buildWhatsAppUrl } from "@/lib/contact";
 
 const icons = [Compass, Gem, HandCoins, Sparkles];
 
@@ -44,7 +45,7 @@ export default function HomePage() {
 
           <div className="mt-8 flex flex-wrap gap-4">
             <a
-              href="https://wa.me/?text=Namaskaram%20Sri%20Sudarshan%20Vastu%20Jyothishalayam%2C%20I%20would%20like%20to%20book%20a%20consultation."
+              href={buildWhatsAppUrl("Namaskaram Sri Sudarshan Vastu Jyothishalayam, I would like to book a consultation.")}
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-emerald-500 to-green-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20"
@@ -114,10 +115,10 @@ export default function HomePage() {
       <section className="mt-16">
         <div className="mb-8 flex items-end justify-between gap-4">
           <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-amber-200">{copy.common.coreServices}</p>
-            <h2 className="mt-2 font-['Cinzel'] text-4xl text-white">{copy.home.sectionTitle}</h2>
+            <p className="text-xs uppercase tracking-[0.2em] text-amber-700">{copy.common.coreServices}</p>
+            <h2 className="mt-2 font-['Cinzel'] text-4xl text-slate-900">{copy.home.sectionTitle}</h2>
           </div>
-          <Link href="/services" className="hidden items-center gap-2 text-sm font-medium text-amber-200 sm:inline-flex">
+          <Link href="/services" className="hidden items-center gap-2 text-sm font-medium text-amber-700 sm:inline-flex">
             {copy.common.viewAllServices} <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
@@ -153,8 +154,8 @@ export default function HomePage() {
 
       <section className="mt-16">
         <div className="mb-8">
-          <p className="text-xs uppercase tracking-[0.2em] text-amber-200">{copy.common.clientVoices}</p>
-          <h2 className="mt-2 font-['Cinzel'] text-4xl text-white">{copy.home.testimonialTitle}</h2>
+          <p className="text-xs uppercase tracking-[0.2em] text-amber-700">{copy.common.clientVoices}</p>
+          <h2 className="mt-2 font-['Cinzel'] text-4xl text-slate-900">{copy.home.testimonialTitle}</h2>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-3">

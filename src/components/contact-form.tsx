@@ -6,6 +6,7 @@ import { useSearchParams } from "next/navigation";
 
 import { translations } from "@/data/translations";
 import { useLanguage } from "@/components/language-context";
+import { buildWhatsAppUrl } from "@/lib/contact";
 
 type FormState = {
   name: string;
@@ -87,6 +88,10 @@ export function ContactForm() {
     setStatus(null);
   };
 
+  const resetTimeOfBirth = () => {
+    updateField("tob", "");
+  };
+
   const validateForm = () => {
     const nextErrors: Record<string, string> = {};
 
@@ -140,8 +145,7 @@ export function ContactForm() {
       return;
     }
 
-    const encodedMessage = encodeURIComponent(buildWhatsAppMessage());
-    window.open(`https://wa.me/?text=${encodedMessage}`, "_blank", "noopener,noreferrer");
+    window.open(buildWhatsAppUrl(buildWhatsAppMessage()), "_blank", "noopener,noreferrer");
   };
 
   const handleEmailSubmit = async () => {
@@ -307,11 +311,22 @@ export function ContactForm() {
                   {copy.contact.form.tob}
                 </label>
                 <input
+                  id="time-of-birth-input"
                   type="time"
                   value={form.tob}
                   onChange={(event) => updateField("tob", event.target.value)}
-                  className="w-full rounded-xl border border-slate-700 bg-slate-950/60 px-4 py-3 text-white outline-none transition focus:border-amber-400"
+                  aria-label={copy.contact.form.tob}
+                  className="w-full min-h-[52px] rounded-xl border border-slate-700 bg-slate-950/60 px-4 py-3 text-base text-slate-50 outline-none transition focus:border-amber-400"
                 />
+                <div className="mt-2 flex items-center justify-end gap-2">
+                  <button
+                    type="button"
+                    onClick={resetTimeOfBirth}
+                    className="rounded-full border border-slate-600 px-3 py-1.5 text-[11px] font-medium text-slate-200 transition hover:border-amber-400 hover:text-amber-200"
+                  >
+                    Clear
+                  </button>
+                </div>
                 {errors.tob ? <p className="mt-2 text-xs text-red-300">{errors.tob}</p> : null}
               </div>
 
