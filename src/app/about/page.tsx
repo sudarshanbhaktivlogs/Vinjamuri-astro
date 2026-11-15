@@ -63,15 +63,16 @@ export default function AboutPage() {
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {copy.about.videos.map((video, index) => (
             <div key={video.title} className="overflow-hidden rounded-3xl border border-amber-500/20 bg-slate-900/70">
-              <div className="aspect-video w-full overflow-hidden bg-slate-950">
-                <iframe
-                  className="h-full w-full"
-                  src={videoEmbeds[index]}
-                  title={video.title}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                />
+              <div className="relative aspect-video w-full overflow-hidden bg-[radial-gradient(circle_at_top,_rgba(168,85,247,0.35),rgba(2,6,23,0.95)_45%,rgba(2,6,23,1)_100%)]">
+                <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(15,23,42,0.15),rgba(15,23,42,0.75))]" />
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 px-6 text-center text-slate-200">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/25 px-2.5 py-1 text-[10px] uppercase tracking-[0.2em] text-slate-200">
+                    <span className="h-2.5 w-2.5 rounded-full bg-red-500" />
+                    YouTube
+                  </div>
+                  <p className="text-xl font-medium text-white">Video unavailable</p>
+                  <p className="text-sm text-slate-300">This video is unavailable</p>
+                </div>
               </div>
               <div className="p-4">
                 <h3 className="font-['Cinzel'] text-xl text-white">{video.title}</h3>
