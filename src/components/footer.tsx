@@ -30,16 +30,6 @@ export function Footer() {
                 {copy.footer.address}
               </a>
             </div>
-            <div className="overflow-hidden rounded-2xl border border-amber-500/20 bg-slate-900/60">
-              <iframe
-                title="Sri Sudarshan Vastu Jyothishalayam location"
-                src="https://www.google.com/maps?q=16.0513566,80.7223825&z=17&output=embed"
-                className="h-44 w-full border-0"
-                loading="lazy"
-                allowFullScreen
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
             <div className="flex items-start gap-3">
               <Clock3 className="mt-0.5 h-4 w-4 text-amber-400" />
               <span>{copy.footer.officeHours}</span>
