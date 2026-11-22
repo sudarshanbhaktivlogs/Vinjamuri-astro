@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#08111f"/>
+  <circle cx="1030" cy="120" r="210" fill="#d97706" opacity="0.14"/>
+  <circle cx="1030" cy="120" r="125" fill="none" stroke="#fbbf24" stroke-width="3" opacity="0.5"/>
+  <text x="90" y="170" fill="#fbbf24" font-family="Georgia,serif" font-size="58" font-weight="700">SRI SUDARSHAN</text>
+  <text x="90" y="235" fill="#cbd5e1" font-family="Georgia,serif" font-size="34" letter-spacing="7">VASTU JYOTHISHALAYAM</text>
+  <line x1="90" y1="290" x2="1110" y2="290" stroke="#f59e0b" stroke-width="3" opacity="0.45"/>
+  <text x="90" y="380" fill="#fff7ed" font-family="Georgia,serif" font-size="64">Vedic Astrology &amp; Vastu</text>
+  <text x="90" y="455" fill="#fbbf24" font-family="Georgia,serif" font-size="38">Personal Guidance • Remedies • Muhurtham</text>
+  <text x="90" y="525" fill="#94a3b8" font-family="Arial,sans-serif" font-size="28">Bapatla, Andhra Pradesh • +91 97045 27404</text>
+  <text x="90" y="575" fill="#f59e0b" font-family="Arial,sans-serif" font-size="24">vinjamuri.in</text>
+</svg>

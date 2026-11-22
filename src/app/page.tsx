@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
@@ -22,6 +23,16 @@ const icons = [Compass, Gem, HandCoins, Sparkles];
 export default function HomePage() {
   const { language } = useLanguage();
   const copy = translations[language];
+  const [expandedTestimonials, setExpandedTestimonials] = useState<string[]>([]);
+  const [showAllTestimonials, setShowAllTestimonials] = useState(false);
+
+  const toggleTestimonial = (name: string) => {
+    setExpandedTestimonials((current) =>
+      current.includes(name)
+        ? current.filter((item) => item !== name)
+        : [...current, name],
+    );
+  };
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
@@ -32,7 +43,7 @@ export default function HomePage() {
           transition={{ duration: 0.45 }}
           className="max-w-2xl"
         >
-          <span className="inline-flex items-center gap-2 rounded-full border border-amber-500/25 bg-amber-500/10 px-3 py-1 text-xs uppercase tracking-[0.2em] text-amber-700">
+          <span className="inline-flex items-center gap-2 rounded-full border border-amber-500/25 bg-amber-500/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-amber-900 shadow-sm">
             <BadgeCheck className="h-3.5 w-3.5" />
             {copy.home.eyebrow}
           </span>
@@ -158,26 +169,72 @@ export default function HomePage() {
           <h2 className="mt-2 font-['Cinzel'] text-4xl text-slate-900">{copy.home.testimonialTitle}</h2>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-3">
-          {copy.home.testimonials.map((testimonial) => (
-            <motion.article
-              key={testimonial.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.45 }}
-              className="rounded-3xl border border-amber-500/15 bg-slate-900/70 p-6"
-            >
-              <div className="mb-4 flex items-center gap-2 text-amber-300">
-                {Array.from({ length: 5 }).map((_, index) => (
-                  <Star key={`${testimonial.name}-${index}`} className="h-4 w-4 fill-current" />
-                ))}
-              </div>
-              <p className="text-base leading-8 text-slate-300">“{testimonial.quote}”</p>
-              <p className="mt-5 font-semibold text-white">{testimonial.name}</p>
-            </motion.article>
-          ))}
+        <div className="grid items-start gap-6 lg:grid-cols-3">
+          {(showAllTestimonials
+            ? copy.home.testimonials
+            : copy.home.testimonials.slice(0, 3)
+          ).map((testimonial) => {
+            const isExpanded = expandedTestimonials.includes(testimonial.name);
+
+            return (
+              <motion.article
+                key={testimonial.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.45 }}
+                className="flex min-h-[360px] flex-col rounded-3xl border border-amber-500/15 bg-slate-900/70 p-6"
+              >
+                <div className="mb-4 flex items-center gap-2 text-amber-300">
+                  {Array.from({ length: 5 }).map((_, index) => (
+                    <Star key={`${testimonial.name}-${index}`} className="h-4 w-4 fill-current" />
+                  ))}
+                </div>
+
+                <p className="text-[11px] uppercase tracking-[0.16em] text-amber-300">
+                  {copy.home.testimonialProblemLabel}
+                </p>
+                <p className="mt-1 text-sm font-semibold leading-6 text-white">{testimonial.problem}</p>
+
+                <p className="mt-4 text-sm leading-7 text-slate-300">“{testimonial.quote}”</p>
+
+                {isExpanded && (
+                  <div className="mt-4 border-t border-slate-700/70 pt-4">
+                    <p className="text-[11px] uppercase tracking-[0.16em] text-amber-300">
+                      {copy.home.testimonialSolutionLabel}
+                    </p>
+                    <p className="mt-2 text-sm leading-7 text-slate-300">{testimonial.fullStory}</p>
+                  </div>
+                )}
+
+                <div className="mt-auto pt-5">
+                  <p className="mb-3 font-semibold text-white">— {testimonial.name}</p>
+                  <button
+                    type="button"
+                    onClick={() => toggleTestimonial(testimonial.name)}
+                    className="inline-flex items-center gap-2 rounded-full border border-amber-400/30 px-4 py-2 text-xs font-semibold text-amber-200 transition hover:border-amber-300 hover:bg-amber-400/10"
+                  >
+                    {isExpanded ? copy.home.testimonialShowLess : copy.home.testimonialReadMore}
+                    <ArrowRight className={`h-3.5 w-3.5 transition ${isExpanded ? "rotate-90" : ""}`} />
+                  </button>
+                </div>
+              </motion.article>
+            );
+          })}
         </div>
+
+        {copy.home.testimonials.length > 3 && (
+          <div className="mt-8 flex justify-center">
+            <button
+              type="button"
+              onClick={() => setShowAllTestimonials((current) => !current)}
+              className="inline-flex items-center gap-2 rounded-full border border-amber-500/40 bg-amber-500/10 px-5 py-3 text-sm font-semibold text-amber-800 transition hover:bg-amber-500/20"
+            >
+              {showAllTestimonials ? copy.home.testimonialShowFewer : copy.home.testimonialShowAll}
+              <ArrowRight className={`h-4 w-4 transition ${showAllTestimonials ? "rotate-90" : ""}`} />
+            </button>
+          </div>
+        )}
       </section>
     </div>
   );

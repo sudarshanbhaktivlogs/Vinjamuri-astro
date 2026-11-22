@@ -7,6 +7,8 @@ type TranslationFile = {
     remedies: string;
     about: string;
     contact: string;
+    brandLineOne: string;
+    brandLineTwo: string;
   };
   buttons: {
     bookConsultation: string;
@@ -51,10 +53,21 @@ type TranslationFile = {
     legacy: string;
     trustBadges: Array<{ value: string; label: string }>;
     featuredServices: Array<{ title: string; description: string }>;
-    testimonials: Array<{ name: string; quote: string }>;
+    testimonials: Array<{
+      name: string;
+      problem: string;
+      quote: string;
+      fullStory: string;
+    }>;
     sectionTitle: string;
     sectionIntro: string;
     testimonialTitle: string;
+    testimonialProblemLabel: string;
+    testimonialSolutionLabel: string;
+    testimonialReadMore: string;
+    testimonialShowLess: string;
+    testimonialShowAll: string;
+    testimonialShowFewer: string;
   };
   services: {
     eyebrow: string;
@@ -148,6 +161,8 @@ export const translations: Record<Language, TranslationFile> = {
       remedies: "Vastu & Remedies",
       about: "About & Videos",
       contact: "Contact",
+      brandLineOne: "Sri Sudarshan",
+      brandLineTwo: "Vastu Jyothishalayam",
     },
     buttons: {
       bookConsultation: "Book Consultation",
@@ -222,23 +237,62 @@ export const translations: Record<Language, TranslationFile> = {
       testimonials: [
         {
           name: "K. Suresh",
+          problem: "Clarity for home and family decisions",
           quote:
             "The guidance was deeply personal and grounded in tradition. We received clarity for our home and family decisions.",
+          fullStory:
+            "I approached Sri Vinjamuri Rajendra Prasad garu for guidance regarding some ongoing issues in my family and home. The consultation was enlightening. The remedies suggested were practical and deeply rooted in tradition. Implementing these remedies brought about a positive change in our family dynamics, and I am immensely grateful for the clarity and direction provided.",
         },
         {
           name: "N. Devika",
+          problem: "Effective Vastu recommendations",
           quote:
             "Beautifully explained, practical, and spiritually uplifting. The Vastu recommendations were easy to apply and highly effective.",
+          fullStory:
+            "As someone who was new to Vastu Shastra, I found the consultation incredibly helpful. The way the information was presented made it easy to understand and apply. Since making the recommended changes, I've noticed a significant improvement in the energy of my home and my overall well-being.",
         },
         {
           name: "P. Kumar",
+          problem: "Confidence and clarity in decision-making",
           quote:
             "A calm and thoughtful consultation that answered every concern with confidence and clarity.",
+          fullStory:
+            "The consultation I received was nothing short of transformative. It addressed all my concerns and provided me with a clear path forward. The blend of traditional wisdom and practical advice was exactly what I needed. I left the session feeling empowered and at peace with the decisions I had to make.",
+        },
+        {
+          name: "R. Lakshmi",
+          problem: "Delay in marriage and family disagreement",
+          quote:
+            "The horoscope guidance helped our family understand the delay calmly and choose an auspicious time with confidence.",
+          fullStory:
+            "Our family had delayed Lakshmi's marriage for a long time and we were also concerned about compatibility differences. After a detailed horoscope and marriage matching consultation, Sri Sudarshan explained the relevant planetary periods, dosha considerations and practical expectations clearly. We received muhurtham guidance and simple follow-up remedies. The family was able to discuss the proposal with greater clarity and proceed at the right time.",
+        },
+        {
+          name: "S. Rahul",
+          problem: "Repeated job setbacks and unclear career direction",
+          quote:
+            "The consultation gave me a practical career plan and helped me recognise the right period to apply and interview.",
+          fullStory:
+            "Rahul had attended several interviews but could not convert opportunities into an offer. A career-focused astrology consultation identified his stronger professional periods and areas that needed more preparation. Along with chart guidance, he was advised to strengthen discipline, improve interview skills and avoid impulsive decisions. Within the recommended period, he received a suitable offer and gained confidence in his career plan.",
+        },
+        {
+          name: "M. Ananya",
+          problem: "Recurring stress and difficulty maintaining family harmony",
+          quote:
+            "Practical Vastu changes and daily routines helped bring calm and order to our home.",
+          fullStory:
+            "Ananya's family experienced repeated stress because of a demanding schedule and heavy use of the sleeping area. The Vastu consultation reviewed bedroom placement, room usage, entrance flow and everyday habits. Small, practical adjustments were suggested instead of major reconstruction. Regular routines and selected remedial practices brought a more peaceful environment and helped the family communicate more calmly.",
         },
       ],
       sectionTitle: "Divine support for every chapter of life",
       sectionIntro: "Core Services",
       testimonialTitle: "What families and clients say",
+      testimonialProblemLabel: "Problem",
+      testimonialSolutionLabel: "Solution",
+      testimonialReadMore: "Read Full Story",
+      testimonialShowLess: "Show Less",
+      testimonialShowAll: "View More Stories",
+      testimonialShowFewer: "Show Fewer Stories",
     },
     services: {
       eyebrow: "Sri Sudarshan",
@@ -480,6 +534,8 @@ export const translations: Record<Language, TranslationFile> = {
       remedies: "వాస్తు & ఉపాయం",
       about: "గురువు గురించి",
       contact: "సంప్రదించండి",
+      brandLineOne: "శ్రీ సుదర్శన్",
+      brandLineTwo: "వాస్తు జ్యోతిశాలయం",
     },
     buttons: {
       bookConsultation: "కన్సల్టేషన్ బుక్ చేయండి",
@@ -519,15 +575,15 @@ export const translations: Record<Language, TranslationFile> = {
     home: {
       eyebrow: "సాంప్రదాయక వేద మార్గదర్శకత్వం",
       title: "జీవితం, సంపద మరియు శాంతికి దైవిక మార్గదర్శకత్వం.",
-      headline: "శ్రీ వివి. రాజేంద్ర ప్రసాద్ గారు",
+      headline: "శ్రీ వింజమూరి రాజేంద్ర ప్రసాద్ గారు",
       subtitle:
         "వేద జ్యోతిష్యం, వాస్తు శాస్త్రం, హస్తసాముద్రికం, మరియు ఉపాయాలపై విశ్వాసపూర్వకమైన మార్గదర్శకత్వం అందిస్తున్నాము. ప్రతి కన్సల్టేషన్ మీ బతుకులో స్పష్టత, ప్రశాంతత మరియు కార్యచరణాత్మక జ్ఞానాన్ని ఇవ్వడానికి రూపొందించబడింది.",
       legacy:
         "భక్తులు, కుటుంబాలు, మరియు NRI సందర్శకులకు సంప్రదాయ జ్ఞానం, సహానుభూతి, మరియు వ్యక్తిగత హృదయపూర్వక సూచనలు అందిస్తున్నాము.",
       trustBadges: [
         { value: "28+", label: "సంవత్సరాల అనుభవం" },
-        { value: "15k+", label: "ప్రపంచవ్యాప్తంగా NRI & ఇండియన్ కన్సల్టేషన్స్" },
-        { value: "100%", label: "సాంప్రదాయక వేద ఉపాయాలు" },
+        { value: "3k+", label: "ప్రపంచవ్యాప్తంగా NRI & ఇండియన్ కన్సల్టేషన్స్" },
+        { value: "100%", label: "సాంప్రదాయ వేద ఉపాయాలు" },
       ],
       featuredServices: [
         {
@@ -550,23 +606,62 @@ export const translations: Record<Language, TranslationFile> = {
       testimonials: [
         {
           name: "కె. సురేష్",
+          problem: "ఇంటి మరియు కుటుంబ నిర్ణయాలకు స్పష్టత",
           quote:
             "మా ఇంటి మరియు కుటుంబ నిర్ణయాలకు మార్గదర్శకత్వం చాలాా స్పష్టంగా, సాంప్రదాయబద్ధంగా మరియు విశ్వాసపూర్వకంగా అందింది.",
+          fullStory:
+            "నేను నా కుటుంబం మరియు ఇంటి గురించి కొన్ని కొనసాగుతున్న సమస్యల కోసం శ్రీ విన్యామురి రాజేంద్ర ప్రసాద్ గారిని సంప్రదించాను. కన్సల్టేషన్ చాలా స్పష్టంగా మరియు సాంప్రదాయానికి అనుగుణంగా మార్గదర్శకత్వం అందించింది. ఈ ఉపాయాలను అమలు చేయడం మా కుటుంబ సంబంధాలలో సానుకూల మార్పులను తీసుకువచ్చింది, మరియు నాకు అందించిన స్పష్టత మరియు దిశకు నేను చాలా కృతజ్ఞతతో ఉన్నాను.",
         },
         {
           name: "ఎన్. దేవిక",
+          problem: "ప్రభావవంతమైన వాస్తు సలహాలు",
           quote:
             "వాస్తు సలహాలు చాలా రీతి మరియు సాధ uncomplicatedగా ఉండి, ఇంటి శక్తి సమతుల్యతను సులభంగా అందించగలిగింది.",
+          fullStory:
+            "వాస్తు శాస్త్రానికి కొత్తగా వచ్చిన వ్యక్తిగా, ఈ కన్సల్టేషన్ నాకు చాలా సహాయపడింది. అందించిన సమాచారం అర్థం చేసుకోవడం మరియు అమలు చేయడం చాలా సులభం. సిఫారసు చేసిన మార్పులు చేసిన తర్వాత, నా ఇంటి శక్తి మరియు నా మొత్తం శ్రేయస్సులో గణనీయమైన మెరుగుదలలు నేను గమనించాను.",
         },
         {
           name: "పి. కుమార్",
+          problem: "నిర్ణయాలు తీసుకునే సమయంలో నమ్మకం మరియు స్పష్టత",
           quote:
             "శాంతి, గంభీరత మరియు స్పష్టతతో సమాధానం ఇచ్చిన కన్సల్టేషన్ ఎంతో సంతోషకరంగా ఉంది.",
+          fullStory:
+            "నేను పొందిన కన్సల్టేషన్ మార్పిడి చేయని విధంగా ఉంది. ఇది నా అన్ని ఆందోళనలను పరిష్కరించింది మరియు నాకు స్పష్టమైన మార్గాన్ని అందించింది. సాంప్రదాయ జ్ఞానం మరియు ప్రాయోగిక సలహా కలయిక నాకు అవసరమైనది. నేను ఈ సెషన్‌ను పూర్తి చేసిన తర్వాత, నేను శాంతిగా మరియు నా నిర్ణయాలతో శాంతిగా ఉన్నాను.",
+        },
+        {
+          name: "ఆర్. లక్ష్మీ",
+          problem: "వివాహం ఆలస్యం మరియు కుటుంబంలో అభిప్రాయ భేదాలు",
+          quote:
+            "జాతక మార్గదర్శకత్వం ఆలస్యానికి సంబంధించిన విషయాలను కుటుంబం ప్రశాంతంగా అర్థం చేసుకోవడానికి మరియు మంచి ముహూర్తాన్ని నమ్మకంగా ఎంచుకోవడానికి సహాయపడింది.",
+          fullStory:
+            "లక్ష్మి వివాహానికి చాలా కాలం ఆలస్యం అయ్యింది, పొంతన విషయంలో కుటుంబ సభ్యులకు అనేక సందేహాలు ఉండేవి. వివరణాత్మక జాతక మరియు వివాహ పొంతన కన్సల్టేషన్ తరువాత, సంబంధిత గ్రహకాలం, దోష అంశాలు మరియు ఆచరణాత్మక విషయాలు స్పష్టంగా వివరించబడ్డాయి. సరైన ముహూర్త మార్గదర్శకత్వం మరియు సులభమైన ఉపాయాలు అందించబడ్డాయి. కుటుంబం ఈ విషయాలను ధైర్యంగా పరిశీలించి, సరైన సమయంలో ముందుకు సాగగలిగింది.",
+        },
+        {
+          name: "ఎస్. రాహుల్",
+          problem: "పునరావృతమైన ఉద్యోగ ప్రతికూలతలు మరియు స్పష్టత లేకపోవడం",
+          quote:
+            "కన్సల్టేషన్ నాకు ఆచరణాత్మక వృత్తి ప్రణాళికను ఇచ్చింది; దరఖాస్తులు మరియు ఇంటర్వ్యూలకు సరైన కాలాన్ని గుర్తించడంలో సహాయపడింది.",
+          fullStory:
+            "రాహుల్ చాలా ఇంటర్వ్యూలకు హాజరైనప్పటికీ అనుకూలమైన ఉద్యోగం దక్కలేదు. వృత్తి సంబంధిత జాతక విశ్లేషణలో అతని బలమైన ప్రాఫెషనల్ కాలాలు మరియు మరింత సన్నద్ధత అవసరమైన ప్రాంతాలు వివరించబడ్డాయి. జాతక మార్గదర్శకంతో పాటు క్రమశిక్షణ, ఇంటర్వ్యూ నైపుణ్యాలు మరియు ఆలోచించి నిర్ణయాలు తీసుకోవాలని సూచించబడింది. సూచించిన కాలంలో సరైన ఉద్యోగ ఆఫర్ వచ్చిన తరువాత అతనికి తన వృత్తి మార్గం మీద మరింత నమ్మకం కలిగింది.",
+        },
+        {
+          name: "ఎమ్. అనన్య",
+          problem: "పునరావృతమైన ఒత్తిడి మరియు కుటుంబ శాంతి లేకపోవడం",
+          quote:
+            "సులబమైన వాస్తు మార్పులు మరియు దైనందిన పద్ధతులు ఇంటికి ప్రశాంతత మరియు సక్రమతను తెచ్చాయి.",
+          fullStory:
+            "అనన్య కుటుంబం వ్యస్తపు దినచర్య మరియు నిద్రగది వినియోగం వల్ల ఒత్తిడిని ఎదుర్కొంది. వాస్తు కన్సల్టేషన్‌లో నిద్రగది, గదుల వినియోగం, ద్వారం మరియు దైనందిన అలవాట్లు పరిశీలించబడ్డాయి. పెద్ద నిర్మాణం లేకుండా అమలు చేయగల చిన్న మార్పులు సూచించబడ్డాయి. సాధారణ దినచర్య, శాంతి కలిగించే అలవాట్లు మరియు అవసరమైన ఉపాయాలు అనుసరించడంతో కుటుంబ వాతావరణం ప్రశాంతంగా మారింది.",
         },
       ],
       sectionTitle: "జీవిత ప్రతి అధ్యాయానికి ప్రశాంత దిశ",
       sectionIntro: "ప్రధాన సేవలు",
       testimonialTitle: "కుటుంబాలు మరియు క్లయింట్లు చెప్పిన మాటలు",
+      testimonialProblemLabel: "సమస్య",
+      testimonialSolutionLabel: "పరిష్కారం",
+      testimonialReadMore: "మొత్తం కథను చదవండి",
+      testimonialShowLess: "తక్కువ చూపించు",
+      testimonialShowAll: "మరిన్ని కథలను చూడండి",
+      testimonialShowFewer: "తక్కువ కథలను చూపించు",
     },
     services: {
       eyebrow: "శ్రీ సుదర్శన",
@@ -674,7 +769,7 @@ export const translations: Record<Language, TranslationFile> = {
           name: "గోమెద / పసుపు safira",
           category: "నవరత్నాలు",
           description:
-            "స meticulous జాతక విశ్లేషణ తర్వాత సిఫార్సు చేయబడే గ్రహరత్నాలు.",
+            "స meticulous జాతక విశ్లేషణ తర్వాత సిఫారసు చేయబడే గ్రహరత్నాలు.",
         },
         {
           name: "పంచముఖ రుద్రాక్ష",

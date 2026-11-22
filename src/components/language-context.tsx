@@ -3,6 +3,7 @@
 import {
   createContext,
   useContext,
+  useEffect,
   useMemo,
   useState,
   type ReactNode,
@@ -30,6 +31,11 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     }),
     [language],
   );
+
+  useEffect(() => {
+    document.documentElement.lang = language;
+    document.documentElement.classList.toggle("telugu", language === "te");
+  }, [language]);
 
   return (
     <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>
