@@ -14,14 +14,7 @@ const nextConfig: NextConfig = {
   },
   devIndicators: false,
   async redirects() {
-    return [
-      {
-        source: "/:path*",
-        has: [{ type: "host", value: "www.vinjamuri.in" }],
-        destination: "https://vinjamuri.in/:path*",
-        permanent: true,
-      },
-    ];
+    return [];
   },
 };
 
