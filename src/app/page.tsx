@@ -10,6 +10,7 @@ import {
   Gem,
   Globe,
   HandCoins,
+  Phone,
   Sparkles,
   Star,
 } from "lucide-react";
@@ -35,8 +36,8 @@ export default function HomePage() {
   };
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-      <section className="grid gap-10 py-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:pt-16">
+    <div className="mx-auto max-w-7xl px-4 pb-3 pt-0 sm:px-6 sm:pb-4 lg:px-8 lg:pb-3">
+      <section className="grid gap-8 pb-4 pt-0 sm:pb-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:pb-0 lg:pt-0">
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
@@ -56,20 +57,22 @@ export default function HomePage() {
 
           <div className="mt-8 flex flex-wrap gap-4">
             <a
-              href={buildWhatsAppUrl("Namaskaram Sri Sudarshan Vastu Jyothishalayam, I would like to book a consultation.")}
+              href="tel:+919704527404"
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 px-5 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-amber-500/30"
+            >
+              <Phone className="h-4 w-4" />
+              {copy.buttons.callNow}
+            </a>
+            <a
+              href={buildWhatsAppUrl("Namaskaram Guruji, I would like to discuss my problem.")}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-emerald-500 to-green-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/20"
+              className="inline-flex items-center gap-2 rounded-full border border-emerald-500/40 bg-emerald-50 px-5 py-3 text-sm font-semibold text-emerald-800 shadow-sm"
             >
-              {copy.buttons.consultWhatsApp} <ArrowRight className="h-4 w-4" />
+              {copy.buttons.whatsappNow} <ArrowRight className="h-4 w-4" />
             </a>
-            <Link
-              href="/services"
-              className="inline-flex items-center gap-2 rounded-full border border-amber-500/40 bg-white/70 px-5 py-3 text-sm font-semibold text-amber-700 shadow-sm"
-            >
-              {copy.buttons.exploreServices}
-            </Link>
           </div>
+          <p className="mt-4 max-w-2xl text-sm leading-6 text-slate-600">{copy.home.heroNote}</p>
         </motion.div>
 
         <motion.div
@@ -114,7 +117,55 @@ export default function HomePage() {
         </motion.div>
       </section>
 
-      <section className="mt-2 grid gap-5 rounded-3xl border border-amber-500/20 bg-slate-900/60 p-6 md:grid-cols-3">
+      <section className="mt-2">
+        <div className="mb-6 text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-700">Zero-Pressure Consultation</p>
+          <h2 className="mt-2 font-['Cinzel'] text-3xl text-slate-900 sm:text-4xl">{copy.home.promiseTitle}</h2>
+        </div>
+        <div className="grid gap-5 md:grid-cols-3">
+          {copy.home.promiseCards.map((promise, index) => (
+            <motion.article
+              key={promise.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.4, delay: index * 0.06 }}
+              className="rounded-3xl border border-amber-500/20 bg-slate-900/70 p-6 text-center shadow-[0_0_25px_rgba(15,23,42,0.25)]"
+            >
+              <div className="mx-auto flex h-11 w-11 items-center justify-center rounded-full border border-amber-400/30 bg-amber-400/10 text-lg font-bold text-amber-300">
+                {index + 1}
+              </div>
+              <h3 className="mt-4 font-['Cinzel'] text-xl text-white">{promise.title}</h3>
+              <p className="mt-3 text-sm leading-7 text-slate-300">{promise.description}</p>
+            </motion.article>
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-16">
+        <div className="mb-8 text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-700">Simple & Transparent</p>
+          <h2 className="mt-2 font-['Cinzel'] text-3xl text-slate-900 sm:text-4xl">{copy.home.callFlowTitle}</h2>
+        </div>
+        <div className="grid gap-5 md:grid-cols-3">
+          {copy.home.callFlowSteps.map((step, index) => (
+            <motion.article
+              key={step.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.4, delay: index * 0.07 }}
+              className="relative rounded-3xl border border-amber-500/20 bg-white/60 p-6 shadow-sm"
+            >
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-amber-700">Step {index + 1}</p>
+              <h3 className="mt-3 font-['Cinzel'] text-xl text-slate-900">{step.title}</h3>
+              <p className="mt-3 text-sm leading-7 text-slate-700">{step.description}</p>
+            </motion.article>
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-16 grid gap-5 rounded-3xl border border-amber-500/20 bg-slate-900/60 p-6 md:grid-cols-3">
         {copy.home.trustBadges.map((metric) => (
           <div key={metric.label} className="rounded-2xl border border-slate-800 bg-slate-950/50 p-5 text-center">
             <p className="font-['Cinzel'] text-3xl text-amber-300">{metric.value}</p>
@@ -236,6 +287,24 @@ export default function HomePage() {
           </div>
         )}
       </section>
+
+      <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 gap-px border-t border-amber-500/30 bg-slate-950 p-2 shadow-[0_-8px_30px_rgba(15,23,42,0.25)] sm:hidden">
+        <a
+          href="tel:+919704527404"
+          className="inline-flex min-h-12 items-center justify-center gap-2 rounded-l-xl bg-gradient-to-r from-amber-500 to-orange-500 px-3 text-center text-sm font-bold text-slate-950"
+        >
+          <Phone className="h-4 w-4" />
+          {language === "te" ? "గురువును కాల్ చేయండి" : "Call Guruji Now"}
+        </a>
+        <a
+          href={buildWhatsAppUrl("Namaskaram Guruji, I would like to discuss my problem.")}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex min-h-12 items-center justify-center gap-2 rounded-r-xl bg-emerald-500 px-3 text-center text-sm font-bold text-white"
+        >
+          {copy.buttons.whatsappNow}
+        </a>
+      </div>
     </div>
   );
 }

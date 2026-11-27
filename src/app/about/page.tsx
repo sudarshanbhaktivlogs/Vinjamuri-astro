@@ -53,6 +53,48 @@ export default function AboutPage() {
       </motion.section>
 
       <section className="mt-16">
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          className="mb-10 grid gap-6 overflow-hidden rounded-3xl border border-red-500/20 bg-gradient-to-br from-slate-950 to-slate-900 p-6 md:grid-cols-[0.7fr_1.3fr] md:items-center md:p-8"
+        >
+          <a
+            href="https://www.youtube.com/@SudarshanBhaktivlogs"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Open Sudarshan Bhakti Vlogs YouTube channel"
+            className="group flex h-44 items-center justify-center rounded-2xl border border-red-500/25 bg-gradient-to-br from-red-600/30 via-slate-900 to-amber-500/10 outline-none transition duration-300 hover:-translate-y-1 hover:border-red-400/60 hover:shadow-[0_12px_35px_rgba(220,38,38,0.18)] focus-visible:ring-2 focus-visible:ring-red-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
+          >
+            <div className="text-center">
+              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-red-600 text-white shadow-[0_12px_30px_rgba(220,38,38,0.35)] transition duration-300 group-hover:scale-110">
+                <PlayCircle className="h-9 w-9" />
+              </div>
+              <p className="mt-3 text-xs font-semibold uppercase tracking-[0.18em] text-red-200">
+                {copy.about.youtubeChannelLabel}
+              </p>
+              <p className="mt-1 text-[11px] font-medium text-slate-300">
+                {language === "te" ? "చానెల్‌ను తెరవండి" : "Open Channel"}
+              </p>
+            </div>
+          </a>
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber-300">YouTube</p>
+            <h2 className="mt-2 font-['Cinzel'] text-3xl text-white">{copy.about.youtubeChannelTitle}</h2>
+            <p className="mt-4 text-sm leading-7 text-slate-300">{copy.about.youtubeChannelDescription}</p>
+            <a
+              href="https://www.youtube.com/@SudarshanBhaktivlogs"
+              target="_blank"
+              rel="noreferrer"
+              className="mt-6 inline-flex items-center gap-2 rounded-full bg-red-600 px-5 py-3 text-sm font-bold text-white shadow-lg shadow-red-950/30 transition hover:bg-red-500"
+            >
+              <PlayCircle className="h-4 w-4" />
+              {copy.about.youtubeSubscribe}
+              <ExternalLink className="h-4 w-4" />
+            </a>
+          </div>
+        </motion.div>
+
         <div className="mb-8 flex items-end justify-between gap-4">
           <div>
             <p className="text-xs uppercase tracking-[0.2em] text-amber-700">{copy.about.videoSectionLabel}</p>
@@ -70,8 +112,12 @@ export default function AboutPage() {
                     <span className="h-2.5 w-2.5 rounded-full bg-red-500" />
                     YouTube
                   </div>
-                  <p className="text-xl font-medium text-white">Video unavailable</p>
-                  <p className="text-sm text-slate-300">This video is unavailable</p>
+                  <p className="text-xl font-medium text-white">
+                    {language === "te" ? "వీడియో అందుబాటులో లేదు" : "Video unavailable"}
+                  </p>
+                  <p className="text-sm text-slate-300">
+                    {language === "te" ? "దయచేసి యూట్యూబ్ ఛానెల్‌ను సందర్శించండి" : "Please visit our YouTube channel"}
+                  </p>
                 </div>
               </div>
               <div className="p-4">

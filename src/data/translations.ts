@@ -13,6 +13,8 @@ type TranslationFile = {
   buttons: {
     bookConsultation: string;
     consultWhatsApp: string;
+    callNow: string;
+    whatsappNow: string;
     exploreServices: string;
     inquireAvailability: string;
     bookThisService: string;
@@ -51,6 +53,11 @@ type TranslationFile = {
     headline: string;
     subtitle: string;
     legacy: string;
+    heroNote: string;
+    promiseTitle: string;
+    promiseCards: Array<{ title: string; description: string }>;
+    callFlowTitle: string;
+    callFlowSteps: Array<{ title: string; description: string }>;
     trustBadges: Array<{ value: string; label: string }>;
     featuredServices: Array<{ title: string; description: string }>;
     testimonials: Array<{
@@ -107,6 +114,10 @@ type TranslationFile = {
     bookSession: string;
     videoSectionLabel: string;
     videoSectionTitle: string;
+    youtubeChannelLabel: string;
+    youtubeChannelTitle: string;
+    youtubeChannelDescription: string;
+    youtubeSubscribe: string;
     videos: Array<{ title: string; description: string }>;
   };
   contact: {
@@ -167,6 +178,8 @@ export const translations: Record<Language, TranslationFile> = {
     buttons: {
       bookConsultation: "Book Consultation",
       consultWhatsApp: "Consult on WhatsApp",
+      callNow: "Call Now to Discuss Your Problem",
+      whatsappNow: "WhatsApp Now",
       exploreServices: "Explore Services",
       inquireAvailability: "Inquire Availability",
       bookThisService: "Book This Service",
@@ -201,12 +214,50 @@ export const translations: Record<Language, TranslationFile> = {
     },
     home: {
       eyebrow: "Traditional Vedic Guidance",
-      title: "Divine guidance for life, prosperity, and harmony.",
+      title: "Honest Vedic Guidance & Vastu Solutions — Pay Only After You Are Satisfied",
       headline: "Sri Vinjamuri Rajendra Prasad garu",
       subtitle:
-        "A trusted spiritual guide for Vedic Astrology, Vastu Shastra, Palmistry, and remedial practices. Every consultation is designed to help families, businesses, and seekers understand their path with clarity, peace, and practical wisdom.",
+        "Speak directly with Sri Vinjamuri Rajendra Prasad garu. We listen to your problem first, offer clear guidance with zero upfront fees, and never push unnecessary pujas or yantras.",
       legacy:
-        "Serving devotees, families, and NRI clients with time-tested wisdom, compassionate listening, and guidance that respects both tradition and daily life realities.",
+        "Available Mon–Sat, 9:00 AM–8:00 PM IST. Keep your Date, Time & Place of Birth (or floor plan) ready for faster guidance.",
+      heroNote:
+        "Available Mon–Sat, 9:00 AM – 8:00 PM IST. Keep your Date, Time & Place of Birth (or floor plan) ready for faster guidance.",
+      promiseTitle: "Our Promise to You",
+      promiseCards: [
+        {
+          title: "Zero Upfront Fee",
+          description:
+            "Share your problem first. You offer Dakshina only if you are genuinely satisfied with our guidance.",
+        },
+        {
+          title: "No Fear-Based Selling",
+          description:
+            "We never pressure you into buying expensive gemstones, yantras, or rituals during your problem call.",
+        },
+        {
+          title: "Practical Solutions First",
+          description:
+            "Our priority is solving your root issue with honest Vedic advice and simple, traditional remedies.",
+        },
+      ],
+      callFlowTitle: "How Your Call Works",
+      callFlowSteps: [
+        {
+          title: "Call or WhatsApp Directly",
+          description:
+            "Reach out at +91 97045 27404 during working hours to share your concern.",
+        },
+        {
+          title: "Honest Problem Analysis",
+          description:
+            "Guruji listens patiently to your situation and provides clear Vedic or Vastu guidance without rushing.",
+        },
+        {
+          title: "Pay Only If Satisfied",
+          description:
+            "Offer Dakshina voluntarily only after your doubts are cleared. Separate costs apply only if you personally request a specific Puja or Yantra later.",
+        },
+      ],
       trustBadges: [
         { value: "28+", label: "Years of Experience" },
         { value: "3k", label: "Global NRI & Indian Consultations" },
@@ -237,27 +288,27 @@ export const translations: Record<Language, TranslationFile> = {
       testimonials: [
         {
           name: "K. Suresh",
-          problem: "Clarity for home and family decisions",
+          problem: "బలవంతపు ఉపాయాలు లేకుండా నిజాయితీగా మార్గదర్శకత్వం",
           quote:
-            "The guidance was deeply personal and grounded in tradition. We received clarity for our home and family decisions.",
+            "మా ఇంటి మరియు కుటుంబ నిర్ణయాలకు మార్గదర్శకత్వం ఎంతో స్పష్టంగా, సాంప్రదాయబద్ధంగా మరియు విశ్వాసపూర్వకంగా అందింది.",
           fullStory:
-            "I approached Sri Vinjamuri Rajendra Prasad garu for guidance regarding some ongoing issues in my family and home. The consultation was enlightening. The remedies suggested were practical and deeply rooted in tradition. Implementing these remedies brought about a positive change in our family dynamics, and I am immensely grateful for the clarity and direction provided.",
+            "నేను నా కుటుంబం మరియు ఇంటి గురించి కొన్ని కొనసాగుతున్న సమస్యల కోసం శ్రీ వింజమూరి రాజేంద్ర ప్రసాద్ గారిని సంప్రదించాను. కన్సల్టేషన్ చాలా స్పష్టంగా మరియు సాంప్రదాయానికి అనుగుణంగా మార్గదర్శకత్వం అందించింది. ఈ ఉపాయాలను అమలు చేయడం మా కుటుంబ సంబంధాలలో సానుకూల మార్పులను తీసుకువచ్చింది, మరియు నాకు అందించిన స్పష్టత మరియు దిశకు నేను చాలా కృతజ్ఞతతో ఉన్నాను.",
         },
         {
           name: "N. Devika",
-          problem: "Effective Vastu recommendations",
+          problem: "మా ఇంటికి ఆచరణాత్మక వాస్తు స్పష్టత",
           quote:
-            "Beautifully explained, practical, and spiritually uplifting. The Vastu recommendations were easy to apply and highly effective.",
+            "వాస్తు సలహాలు ఎంతో వివరంగా, ఆచరణాత్మకంగా మరియు ఆధ్యాత్మికంగా వివరించబడ్డాయి; అమలు చేయడం సులభంగా ఉంది.",
           fullStory:
-            "As someone who was new to Vastu Shastra, I found the consultation incredibly helpful. The way the information was presented made it easy to understand and apply. Since making the recommended changes, I've noticed a significant improvement in the energy of my home and my overall well-being.",
+            "వాస్తు శాస్త్రానికి నేను కొత్తగా ఉండటంతో ఈ కన్సల్టేషన్ చాలా ఉపయోగకరంగా అనిపించింది. సలహాలు సులభంగా అర్థమయ్యేలా, వెంటనే అమలు చేయగలిగేలా వివరించారు. సూచించిన మార్పులు చేసిన తర్వాత నా ఇంటి శక్తి మరియు కుటుంబ శ్రేయస్సులో గణనీయమైన మార్పును గమనించాము.",
         },
         {
           name: "P. Kumar",
-          problem: "Confidence and clarity in decision-making",
+          problem: "ప్రశాంతత & పారదర్శకంగా కన్సల్టేషన్",
           quote:
-            "A calm and thoughtful consultation that answered every concern with confidence and clarity.",
+            "ప్రశాంతంగా, ఆలోచనాత్మకంగా జరిగిన ఈ కన్సల్టేషన్ ప్రతి సందేహానికి నమ్మకంగా, స్పష్టంగా సమాధానం ఇచ్చింది.",
           fullStory:
-            "The consultation I received was nothing short of transformative. It addressed all my concerns and provided me with a clear path forward. The blend of traditional wisdom and practical advice was exactly what I needed. I left the session feeling empowered and at peace with the decisions I had to make.",
+            "ఈ కన్సల్టేషన్ నా ఆలోచనలను పూర్తిగా మార్పు చేసింది. నా సందేహాలన్నింటికి సమాధానాలు ఇస్తూ ముందుకు వెళ్లే స్పష్టమైన మార్గం చూపించారు. సంప్రదాయ వేద జ్ఞానం మరియు ఆచరణాత్మక సలహాల కలయిక నాకు చాలా సహాయకరంగా ఉంది. కన్సల్టేషన్ తర్వాత నా నిర్ణయాలపై నమ్మకం పెరిగింది మరియు మనసులో ప్రశాంతత కలిగింది.",
         },
         {
           name: "R. Lakshmi",
@@ -397,10 +448,10 @@ export const translations: Record<Language, TranslationFile> = {
             "Traditional fire rituals to support emotional balance, peace, and spiritual restoration.",
         },
         {
-          name: "Gomed / Yellow Sapphire",
-          category: "Gemstones",
+          name: "గోమెద / పసుపు పచ్చ",
+          category: "నవరత్నాలు",
           description:
-            "Planetary stones recommended after careful chart study and consultation.",
+            "శ్రద్ధగా జాతక విశ్లేషణ చేసిన తర్వాత సిఫారసు చేయబడే గ్రహరత్నాలు.",
         },
         {
           name: "Five Mukhi Rudraksha",
@@ -436,6 +487,11 @@ export const translations: Record<Language, TranslationFile> = {
       bookSession: "Book a Session",
       videoSectionLabel: "Guidance Library",
       videoSectionTitle: "Astrology & Vastu Videos",
+      youtubeChannelLabel: "Sudarshan Bhakti Vlogs",
+      youtubeChannelTitle: "Spiritual Wisdom for Everyday Life",
+      youtubeChannelDescription:
+        "Welcome to Sudarshan Bhakti Vlogs—our Telugu YouTube channel for devotional wisdom, Hindu Dharma, astrology based on birth details, Vastu guidance, uplifting speeches, devotional slokas, and thoughtful spiritual vlogs inspired by revered spiritual teachers.",
+      youtubeSubscribe: "Visit & Subscribe on YouTube",
       videos: [
         {
           title: "Vastu Tips for New Homes",
@@ -506,7 +562,7 @@ export const translations: Record<Language, TranslationFile> = {
       success: "Your request has been sent successfully.",
       error: "Please complete the required fields before submitting.",
       emailConfigError:
-        "Email backup is not configured. Please use WhatsApp for direct consultation.",
+        "ఇమెయిల్ బదలింపు ప్రస్తుతం అందుబాటులో లేదు. దయచేసి వాట్సాప్ ద్వారా నేరుగా సంప్రదించండి.",
       faqs: [
         {
           question: "Do I need my birth details for every consultation?",
@@ -540,6 +596,8 @@ export const translations: Record<Language, TranslationFile> = {
     buttons: {
       bookConsultation: "కన్సల్టేషన్ బుక్ చేయండి",
       consultWhatsApp: "వాట్సాప్‌లో సంప్రదించండి",
+      callNow: "మీ సమస్యను చర్చించడానికి ఇప్పుడే కాల్ చేయండి",
+      whatsappNow: "ఇప్పుడే వాట్సాప్ చేయండి",
       exploreServices: "సేవలను చూడండి",
       inquireAvailability: "లభ్యతను అడగండి",
       bookThisService: "ఈ సేవను బుక్ చేయండి",
@@ -574,12 +632,50 @@ export const translations: Record<Language, TranslationFile> = {
     },
     home: {
       eyebrow: "సాంప్రదాయక వేద మార్గదర్శకత్వం",
-      title: "జీవితం, సంపద మరియు శాంతికి దైవిక మార్గదర్శకత్వం.",
+      title: "నిజాయితీగల వేద మార్గదర్శకత్వం & వాస్తు పరిష్కారాలు — మీకు సంతృప్తి కలిగితేనే చెల్లింపు",
       headline: "శ్రీ వింజమూరి రాజేంద్ర ప్రసాద్ గారు",
       subtitle:
-        "వేద జ్యోతిష్యం, వాస్తు శాస్త్రం, హస్తసాముద్రికం, మరియు ఉపాయాలపై విశ్వాసపూర్వకమైన మార్గదర్శకత్వం అందిస్తున్నాము. ప్రతి కన్సల్టేషన్ మీ బతుకులో స్పష్టత, ప్రశాంతత మరియు కార్యచరణాత్మక జ్ఞానాన్ని ఇవ్వడానికి రూపొందించబడింది.",
+        "శ్రీ వింజమూరి రాజేంద్ర ప్రసాద్ గారితో నేరుగా మాట్లాడండి. ముందుగా మీ సమస్యను విని, ముందస్తు ఫీజు లేకుండా స్పష్టమైన మార్గదర్శకత్వం ఇస్తాము. అనవసరమైన పూజలు లేదా యంత్రాలు కొనమని ఎప్పుడూ ఒత్తిడి చేయము.",
       legacy:
-        "భక్తులు, కుటుంబాలు, మరియు NRI సందర్శకులకు సంప్రదాయ జ్ఞానం, సహానుభూతి, మరియు వ్యక్తిగత హృదయపూర్వక సూచనలు అందిస్తున్నాము.",
+        "సోమవారం నుండి శనివారం వరకు ఉదయం 9:00 నుండి సాయంత్రం 8:00 వరకు అందుబాటులో ఉంటాము. త్వరిత మార్గదర్శకత్వం కోసం పుట్టిన తేది, సమయం, స్థలం (లేదా ఫ్లోర్ ప్లాన్) సిద్ధంగా ఉంచుకోండి.",
+      heroNote:
+        "సోమవారం నుండి శనివారం వరకు ఉదయం 9:00 నుండి సాయంత్రం 8:00 IST వరకు అందుబాటులో ఉంటాము. త్వరిత మార్గదర్శకత్వం కోసం పుట్టిన తేది, సమయం, స్థలం లేదా ఫ్లోర్ ప్లాన్ సిద్ధంగా ఉంచుకోండి.",
+      promiseTitle: "మీకు మా హామీ",
+      promiseCards: [
+        {
+          title: "ముందస్తు ఫీజు లేదు",
+          description:
+            "ముందుగా మీ సమస్యను చెప్పండి. మార్గదర్శకత్వంతో నిజంగా సంతృప్తి చెందిన తర్వాత మాత్రమే మీకు నచ్చిన దక్షిణ ఇవ్వండి.",
+        },
+        {
+          title: "భయపెట్టే విక్రయం లేదు",
+          description:
+            "సమస్యను చర్చించే సమయంలో ఖరీదైన రత్నాలు, యంత్రాలు లేదా క్రతువులు కొనమని మేము ఎప్పుడూ ఒత్తిడి చేయము.",
+        },
+        {
+          title: "మొదటికి ఆచరణాత్మక పరిష్కారం",
+          description:
+            "సరళమైన సాంప్రదాయ ఉపాయాలతో నిజాయితీగల వేద సలహాల ద్వారా మీ సమస్యకు మూల కారణ పరిష్కారం ఇవ్వడమే మా ప్రధాన లక్ష్యం.",
+        },
+      ],
+      callFlowTitle: "మీ కాల్ ఎలా జరుగుతుంది",
+      callFlowSteps: [
+        {
+          title: "నేరుగా కాల్ లేదా వాట్సాప్ చేయండి",
+          description:
+            "పనిచేసే సమయంలో +91 97045 27404కు చేరుకుని మీ ఆందోళనను వివరించండి.",
+        },
+        {
+          title: "నిజాయితీగా సమస్య విశ్లేషణ",
+          description:
+            "గురువుగారు మీ పరిస్థితిని ఓపికగా విని, ఎలాంటి తొందరపాటు లేకుండా స్పష్టమైన వేద లేదా వాస్తు మార్గదర్శకత్వం అందిస్తారు.",
+        },
+        {
+          title: "సంతృప్తి చెందితేనే చెల్లింపు",
+          description:
+            "మీ సందేహాలు తొలగిన తర్వాతనే స్వచ్ఛందంగా దక్షిణ అందించండి. మీరు వ్యక్తిగతంగా నిర్దిష్ట పూజ లేదా యంత్రం కోరితే మాత్రమే దాని ప్రత్యేక ఖర్చులు వర్తిస్తాయి.",
+        },
+      ],
       trustBadges: [
         { value: "28+", label: "సంవత్సరాల అనుభవం" },
         { value: "3k+", label: "ప్రపంచవ్యాప్తంగా NRI & ఇండియన్ కన్సల్టేషన్స్" },
@@ -606,27 +702,27 @@ export const translations: Record<Language, TranslationFile> = {
       testimonials: [
         {
           name: "కె. సురేష్",
-          problem: "ఇంటి మరియు కుటుంబ నిర్ణయాలకు స్పష్టత",
+          problem: "బలవంతపు ఉపాయాలు లేకుండా నిజాయితీగా మార్గదర్శకత్వం",
           quote:
-            "మా ఇంటి మరియు కుటుంబ నిర్ణయాలకు మార్గదర్శకత్వం చాలాా స్పష్టంగా, సాంప్రదాయబద్ధంగా మరియు విశ్వాసపూర్వకంగా అందింది.",
+            "మా ఇంటి మరియు కుటుంబ నిర్ణయాలకు మార్గదర్శకత్వం ఎంతో స్పష్టంగా, సాంప్రదాయబద్ధంగా మరియు విశ్వాసపూర్వకంగా అందింది.",
           fullStory:
-            "నేను నా కుటుంబం మరియు ఇంటి గురించి కొన్ని కొనసాగుతున్న సమస్యల కోసం శ్రీ విన్యామురి రాజేంద్ర ప్రసాద్ గారిని సంప్రదించాను. కన్సల్టేషన్ చాలా స్పష్టంగా మరియు సాంప్రదాయానికి అనుగుణంగా మార్గదర్శకత్వం అందించింది. ఈ ఉపాయాలను అమలు చేయడం మా కుటుంబ సంబంధాలలో సానుకూల మార్పులను తీసుకువచ్చింది, మరియు నాకు అందించిన స్పష్టత మరియు దిశకు నేను చాలా కృతజ్ఞతతో ఉన్నాను.",
+            "నేను నా కుటుంబం మరియు ఇంటి గురించి కొన్ని కొనసాగుతున్న సమస్యల కోసం శ్రీ వింజమూరి రాజేంద్ర ప్రసాద్ గారిని సంప్రదించాను. కన్సల్టేషన్ చాలా స్పష్టంగా మరియు సాంప్రదాయానికి అనుగుణంగా మార్గదర్శకత్వం అందించింది. ఈ ఉపాయాలను అమలు చేయడం మా కుటుంబ సంబంధాలలో సానుకూల మార్పులను తీసుకువచ్చింది, మరియు నాకు అందించిన స్పష్టత మరియు దిశకు నేను చాలా కృతజ్ఞతతో ఉన్నాను.",
         },
         {
           name: "ఎన్. దేవిక",
-          problem: "ప్రభావవంతమైన వాస్తు సలహాలు",
+          problem: "మా ఇంటికి ఆచరణాత్మక వాస్తు స్పష్టత",
           quote:
-            "వాస్తు సలహాలు చాలా రీతి మరియు సాధ uncomplicatedగా ఉండి, ఇంటి శక్తి సమతుల్యతను సులభంగా అందించగలిగింది.",
+            "వాస్తు సలహాలు ఎంతో వివరంగా, ఆచరణాత్మకంగా మరియు ఆధ్యాత్మికంగా వివరించబడ్డాయి; అమలు చేయడం సులభంగా ఉంది.",
           fullStory:
-            "వాస్తు శాస్త్రానికి కొత్తగా వచ్చిన వ్యక్తిగా, ఈ కన్సల్టేషన్ నాకు చాలా సహాయపడింది. అందించిన సమాచారం అర్థం చేసుకోవడం మరియు అమలు చేయడం చాలా సులభం. సిఫారసు చేసిన మార్పులు చేసిన తర్వాత, నా ఇంటి శక్తి మరియు నా మొత్తం శ్రేయస్సులో గణనీయమైన మెరుగుదలలు నేను గమనించాను.",
+            "వాస్తు శాస్త్రానికి నేను కొత్తగా ఉండటంతో ఈ కన్సల్టేషన్ చాలా ఉపయోగకరంగా అనిపించింది. సలహాలు సులభంగా అర్థమయ్యేలా, వెంటనే అమలు చేయగలిగేలా వివరించారు. సూచించిన మార్పులు చేసిన తర్వాత నా ఇంటి శక్తి మరియు కుటుంబ శ్రేయస్సులో గణనీయమైన మార్పును గమనించాము.",
         },
         {
           name: "పి. కుమార్",
-          problem: "నిర్ణయాలు తీసుకునే సమయంలో నమ్మకం మరియు స్పష్టత",
+          problem: "ప్రశాంతత & పారదర్శకంగా కన్సల్టేషన్",
           quote:
-            "శాంతి, గంభీరత మరియు స్పష్టతతో సమాధానం ఇచ్చిన కన్సల్టేషన్ ఎంతో సంతోషకరంగా ఉంది.",
+            "ప్రశాంతంగా, ఆలోచనాత్మకంగా జరిగిన ఈ కన్సల్టేషన్ ప్రతి సందేహానికి నమ్మకంగా, స్పష్టంగా సమాధానం ఇచ్చింది.",
           fullStory:
-            "నేను పొందిన కన్సల్టేషన్ మార్పిడి చేయని విధంగా ఉంది. ఇది నా అన్ని ఆందోళనలను పరిష్కరించింది మరియు నాకు స్పష్టమైన మార్గాన్ని అందించింది. సాంప్రదాయ జ్ఞానం మరియు ప్రాయోగిక సలహా కలయిక నాకు అవసరమైనది. నేను ఈ సెషన్‌ను పూర్తి చేసిన తర్వాత, నేను శాంతిగా మరియు నా నిర్ణయాలతో శాంతిగా ఉన్నాను.",
+            "ఈ కన్సల్టేషన్ నా ఆలోచనలను పూర్తిగా మార్పు చేసింది. నా సందేహాలన్నింటికి సమాధానాలు ఇస్తూ ముందుకు వెళ్లే స్పష్టమైన మార్గం చూపించారు. సంప్రదాయ వేద జ్ఞానం మరియు ఆచరణాత్మక సలహాల కలయిక నాకు చాలా సహాయకరంగా ఉంది. కన్సల్టేషన్ తర్వాత నా నిర్ణయాలపై నమ్మకం పెరిగింది మరియు మనసులో ప్రశాంతత కలిగింది.",
         },
         {
           name: "ఆర్. లక్ష్మీ",
@@ -648,9 +744,9 @@ export const translations: Record<Language, TranslationFile> = {
           name: "ఎమ్. అనన్య",
           problem: "పునరావృతమైన ఒత్తిడి మరియు కుటుంబ శాంతి లేకపోవడం",
           quote:
-            "సులబమైన వాస్తు మార్పులు మరియు దైనందిన పద్ధతులు ఇంటికి ప్రశాంతత మరియు సక్రమతను తెచ్చాయి.",
+            "సులభమైన వాస్తు మార్పులు మరియు దైనందిన పద్ధతులు ఇంటికి ప్రశాంతత మరియు సక్రమతను తెచ్చాయి.",
           fullStory:
-            "అనన్య కుటుంబం వ్యస్తపు దినచర్య మరియు నిద్రగది వినియోగం వల్ల ఒత్తిడిని ఎదుర్కొంది. వాస్తు కన్సల్టేషన్‌లో నిద్రగది, గదుల వినియోగం, ద్వారం మరియు దైనందిన అలవాట్లు పరిశీలించబడ్డాయి. పెద్ద నిర్మాణం లేకుండా అమలు చేయగల చిన్న మార్పులు సూచించబడ్డాయి. సాధారణ దినచర్య, శాంతి కలిగించే అలవాట్లు మరియు అవసరమైన ఉపాయాలు అనుసరించడంతో కుటుంబ వాతావరణం ప్రశాంతంగా మారింది.",
+            "అనన్య కుటుంబం వ్యస్తమైన దినచర్య మరియు నిద్రగది వినియోగం వల్ల ఒత్తిడిని ఎదుర్కొంది. వాస్తు కన్సల్టేషన్‌లో నిద్రగది, గదుల వినియోగం, ద్వారం మరియు దైనందిన అలవాట్లు పరిశీలించబడ్డాయి. పెద్ద నిర్మాణం లేకుండా అమలు చేయగల చిన్న మార్పులు సూచించబడ్డాయి. సాధారణ దినచర్య, శాంతి కలిగించే అలవాట్లు మరియు అవసరమైన ఉపాయాలు అనుసరించడంతో కుటుంబ వాతావరణం ప్రశాంతంగా మారింది.",
         },
       ],
       sectionTitle: "జీవిత ప్రతి అధ్యాయానికి ప్రశాంత దిశ",
@@ -685,7 +781,7 @@ export const translations: Record<Language, TranslationFile> = {
           description:
             "ఇంటి, కార్యాలయం, వ్యాపార స్థలం వంటి చోట్ల శక్తి సమతుల్యత, దోష నివారణ మరియు సాధన మార్గదర్శకత్వం.",
           duration: "60 నిమిషాలు",
-          mode: "మార్క్‌డ్ లో / ఆన్లైన్",
+          mode: "వ్యక్తిగతంగా / ఆన్లైన్",
           includes: [
             "స్థలం శక్తి పరిశీలన",
             "ద్వారం మరియు గది విశ్లేషణ",
@@ -738,7 +834,7 @@ export const translations: Record<Language, TranslationFile> = {
       eyebrow: "పవిత్ర ఉపాయాలు",
       heading: "వాస్తు & ఉపాయాలు",
       intro:
-        "స్వచ్ఛమైన నవరత్నాలు, నేపాల్ రుద్రాక్షలు, energised యంత్రాలు మరియు వేద హోమాలతో శాంతి, శ్రేయస్సు మరియు ఆధ్యాత్మిక సమతుల్యతను పొందండి.",
+        "స్వచ్ఛమైన నవరత్నాలు, నేపాల్ రుద్రాక్షలు, యంత్రాలు మరియు వేద హోమాలతో శాంతి, శ్రేయస్సు మరియు ఆధ్యాత్మిక సమతుల్యతను పొందండి.",
       categories: ["అన్నీ", "నవరత్నాలు", "రుద్రాక్షలు", "యంత్రాలు"],
       items: [
         {
@@ -766,10 +862,10 @@ export const translations: Record<Language, TranslationFile> = {
             "ఆధ్యాత్మిక, మానసిక మరియు శక్తి స్థితిని మెరుగుపరచడానికి చేయబడే సంప్రదాయ అగ్నిహోమాలు.",
         },
         {
-          name: "గోమెద / పసుపు safira",
+          name: "గోమెద / పసుపు పచ్చ",
           category: "నవరత్నాలు",
           description:
-            "స meticulous జాతక విశ్లేషణ తర్వాత సిఫారసు చేయబడే గ్రహరత్నాలు.",
+            "శ్రద్ధగా జాతక విశ్లేషణ చేసిన తర్వాత సిఫారసు చేయబడే గ్రహరత్నాలు.",
         },
         {
           name: "పంచముఖ రుద్రాక్ష",
@@ -791,7 +887,7 @@ export const translations: Record<Language, TranslationFile> = {
       heading: "గురువుగూర్చి",
       intro: "నమ్మకం, శ్రద్ధ మరియు పవిత్ర జ్ఞానానికి చెందిన వారసత్వం.",
       bioOne:
-        "శ్రీ విన్యామురి రాజేంద్ర ప్రసాద్ గారు వేద జ్యోతిష్యం మరియు వాస్తు సలహాలకు ప్రసిద్ధులైన ప్రముఖ మార్గదర్శకులు. సంప్రదాయ జ్ఞానం, మానవీయ శ్రద్ధ మరియు సహనంతో వారి సలహాలు కుటుంబాలు, వ్యాపారస్థులు, మరియు ఆధ్యాత్మిక వ్యక్తులను సహాయపరుస్తాయి.",
+        "శ్రీ వింజమూరి రాజేంద్ర ప్రసాద్ గారు వేద జ్యోతిష్యం మరియు వాస్తు సలహాలకు ప్రసిద్ధులైన ప్రముఖ మార్గదర్శకులు. సంప్రదాయ జ్ఞానం, మానవీయ శ్రద్ధ మరియు సహనంతో వారి సలహాలు కుటుంబాలు, వ్యాపారస్థులు, మరియు ఆధ్యాత్మిక వ్యక్తులను సహాయపరుస్తాయి.",
       bioTwo:
         "శ్రద్ధ, అంకిత భావం మరియు సహజ అనుభవంతో కూడిన ఆయన మార్గదర్శకత్వం ప్రతి వ్యక్తి మరియు కుటుంబం కోసం శాంతి, సమతుల్యత మరియు స్ఫూర్తిని అందిస్తుంది. జీవితం, గృహం, వివాహం మరియు ఉపాయాల గురించి మార్గనిర్దేశం చేస్తున్నప్పుడు ఆయన సున్నితమైన మరియు అందమైన విధానాన్ని పాటిస్తారు.",
       legacyTitle: "వారసత్వం & నిపుణత",
@@ -803,8 +899,13 @@ export const translations: Record<Language, TranslationFile> = {
         "ముహూర్తం, వివాహ పొంతన మరియు దోష మార్గదర్శకత్వం",
       ],
       bookSession: "సెషన్ బుక్ చేయండి",
-      videoSectionLabel: "మార్గదర్శక 라이బ్రరీ",
-      videoSectionTitle: "జ్యోతిష్య & వాస్తు వీడియోలు",
+      videoSectionLabel: "మార్గదర్శక గ్రంథాలయం",
+      videoSectionTitle: "జ్యోతిష్యం & వాస్తు వీడియోలు",
+      youtubeChannelLabel: "సుదర్శన్ భక్తి వ్లాగ్స్",
+      youtubeChannelTitle: "దైనందిన జీవితానికి ఆధ్యాత్మిక మార్గదర్శకత్వం",
+      youtubeChannelDescription:
+        "సుదర్శన్ భక్తి వ్లాగ్స్‌కు స్వాగతం. జీవితం కోసం ఆధ్యాత్మిక జ్ఞానం కోరుకునే వారికి భక్తి, హిందూ ధర్మం, వేద ప్రవచనాలు, దేవోత్సాహక భక్తి శ్లోకాలు, పుట్టిన తేదీ ఆధారిత జ్యోతిష్యం, వాస్తు మార్గదర్శకత్వం మరియు జీవిత సత్యాన్ని తెలుసుకునే ఆలోచనాత్మక తెలుగు వీడియోలను ఇక్కడ అందిస్తాము.",
+      youtubeSubscribe: "యూట్యూబ్‌లో చూడండి & సభ్యత్వం పొందండి",
       videos: [
         {
           title: "కొత్త ఇంటికి వాస్తు చిట్కాలు",
@@ -856,7 +957,7 @@ export const translations: Record<Language, TranslationFile> = {
       ],
       modeOptions: ["ఆన్‌లైన్ ఫోన్/వీడియో", "వ్యక్తిగతంగా"],
       placeholders: {
-        fullName: "శ్రీ విన్యామురి రాజేంద్ర ప్రసాద్",
+        fullName: "శ్రీ వింజమూరి రాజేంద్ర ప్రసాద్",
         phone: "+91 97045 27404",
         pob: "రాజవోలు, చేర్కుపల్లి, బాపట్ల, ఆంధ్రప్రదేశ్",
         message:
@@ -875,7 +976,7 @@ export const translations: Record<Language, TranslationFile> = {
       success: "మీ అభ్యర్థన విజయవంతంగా పంపబడింది.",
       error: "సమర్పించే ముందు కావాల్సిన వివరాలను పూరించండి.",
       emailConfigError:
-        "ఇమెయిల్ బాకప్ presently అందుబాటులో లేదు. దయచేసి వాట్సాప్ ద్వారా నేరుగా సంప్రదించండి.",
+        "ఇమెయిల్ బదలింపు ప్రస్తుతం అందుబాటులో లేదు. దయచేసి వాట్సాప్ ద్వారా నేరుగా సంప్రదించండి.",
       faqs: [
         {
           question: "ప్రతి కన్సల్టేషన్‌లో జన్మ వివరాలు అవసరమా?",
